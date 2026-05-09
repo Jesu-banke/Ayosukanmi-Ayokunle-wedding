@@ -668,14 +668,14 @@
         text-align: center;
         margin-bottom: 42px;
       }
-      .friends-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-        max-width: 960px;
-        margin: 0 auto 70px;
-      }
+     .friends-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 960px;
+  margin: 0 auto 70px;
+}
       .friend-card {
         text-align: center;
       }
@@ -708,6 +708,36 @@
         background: var(--pink);
         margin: 0 auto 60px;
       }
+      .friends-both {
+  display: flex;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+.friends-col {
+  flex: 1;
+  min-width: 280px;
+  max-width: 480px;
+}
+.friends-col .friends-grid {
+  max-width: 100%;
+  margin: 0 auto 0;
+}
+
+/* Stack on mobile */
+@media (max-width: 768px) {
+  .friends-both {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .friends-col {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 
       /* ── MAP & HOTELS ── */
       #map-hotels {
@@ -1215,8 +1245,10 @@
         <div class="s-rule"></div>
 
         <!-- GROOM'S FRIENDS -->
-        <h3 class="friends-sub">His Friends</h3>
-        <div class="friends-grid">
+        <div class="friends-both">
+  <div class="friends-col">
+    <h3 class="friends-sub">His Friends</h3>
+    <div class="friends-grid">
           <!-- ✏️ Replace emoji with <img src="photo.jpg"> and update names -->
           <div class="friend-card">
             <div class="friend-photo">
@@ -1263,12 +1295,11 @@
             <p class="friend-name">Olafayimika</p>
           </div>
         </div>
+  </div>
 
-        <div class="friends-divider"></div>
-
-        <!-- BRIDE'S FRIENDS -->
-        <h3 class="friends-sub">Her Friends</h3>
-        <div class="friends-grid">
+  <div class="friends-col">
+    <h3 class="friends-sub">Her Friends</h3>
+    <div class="friends-grid">
           <div class="friend-card">
             <div class="friend-photo">
               <img src="Olamide Owonikoko.jpeg" />
@@ -1325,9 +1356,12 @@
                 src="Jayeoba Iyanuoluwa Deborah.jpeg"
               />
             </div>
+            
             <p class="friend-name">Deborah Iyanuoluwa Jayeoba</p>
           </div>
-        </div>
+</div>
+  </div>
+</div>      
       </div>
     </section>
 
