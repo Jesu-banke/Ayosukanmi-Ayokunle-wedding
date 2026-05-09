@@ -55,50 +55,127 @@
       }
 
       /* ── NAV ── */
-     nav {
+     /* ── NAV ── */
+nav {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
-  background: linear-gradient(
-    to bottom,
-    rgba(196, 104, 122, 0.25) 0%,
-    rgba(74, 44, 30, 0.25) 100%
-  );
+  background: rgba(253, 245, 240, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid var(--pink);
+  border-bottom: 1px solid var(--pink);
+  padding: 0 30px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: 16px 28px;
-  padding: 10px 16px;
+  justify-content: center;
+  min-height: 54px;
 }
-nav a {
+
+/* Desktop links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: nowrap;
+}
+.nav-links a {
   text-decoration: none;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--white);
-  font-weight: 500;
+  color: var(--choc);
   transition: color 0.3s;
   white-space: nowrap;
 }
-      nav a {
-        text-decoration: none;
-        font-family: "Jost", sans-serif;
-        font-size: 12px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: var(--white);
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-      nav a:hover {
-        color: var(--pink-deep);
-      }
+.nav-links a:hover { color: var(--pink-deep); }
 
+/* Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--choc);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when open */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE NAV ── */
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  /* Hide desktop links, show hamburger */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(253, 245, 240, 0.98);
+    border-bottom: 1px solid var(--pink);
+    padding: 20px 0;
+    gap: 0;
+    z-index: 998;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 14px 30px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--pink-blush);
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  /* Center the wedding logo/name in nav on mobile */
+  nav::before {
+    content: "A & A";
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--choc);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
       /* ── HERO ── */
       #home {
         position: relative;
@@ -1002,13 +1079,20 @@ nav a {
   </head>
   <body>
     <!-- ── NAV ── -->
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#story">Our Story</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#friends">Our Friends</a>
-      <a href="#map-hotels">Venue & Hotels</a>
-    </nav>
+    <nav id="navbar">
+  <div class="nav-links" id="nav-links">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#story" onclick="closeMenu()">Our Story</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="#friends" onclick="closeMenu()">Our Friends</a>
+    <a href="#map-hotels" onclick="closeMenu()">Venue & Hotels</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
     <!-- ── HOME ── -->
     <section id="home">
