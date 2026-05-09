@@ -108,11 +108,10 @@ nav {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--choc);
+  background: var(--white);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-
 /* Hamburger animation when open */
 .hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
@@ -139,7 +138,11 @@ nav {
     left: 0;
     width: 100%;
     flex-direction: column;
-    background: rgba(253, 245, 240, 0.98);
+    background: linear-gradient(
+      to bottom,
+      rgba(196, 104, 122, 0.95) 0%,
+      rgba(74, 44, 30, 0.95) 100%
+    );
     border-bottom: 1px solid var(--pink);
     padding: 20px 0;
     gap: 0;
@@ -148,13 +151,14 @@ nav {
   .nav-links.open {
     display: flex;
   }
-  .nav-links a {
+ .nav-links a {
     padding: 14px 30px;
     font-size: 11px;
     letter-spacing: 3px;
-    border-bottom: 1px solid var(--pink-blush);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     width: 100%;
     text-align: center;
+    color: var(--white);
   }
   .nav-links a:last-child {
     border-bottom: none;
