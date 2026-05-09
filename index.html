@@ -55,24 +55,36 @@
       }
 
       /* ── NAV ── */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 999;
-        background: linear-gradient(
-          to bottom,
-          rgba(196, 104, 122, 0.25) 0%,
-          rgba(74, 44, 30, 0.25) 100%
-        );
-        backdrop-filter: blur(12px);
-        border-bottom: 2px solid var(--pink);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 44px;
-        padding: 15px 30px;
-      }
+     nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: linear-gradient(
+    to bottom,
+    rgba(196, 104, 122, 0.25) 0%,
+    rgba(74, 44, 30, 0.25) 100%
+  );
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--pink);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 28px;
+  padding: 10px 16px;
+}
+nav a {
+  text-decoration: none;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 500;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
       nav a {
         text-decoration: none;
         font-family: "Jost", sans-serif;
@@ -727,15 +739,31 @@
 }
 
 /* Stack on mobile */
+/* Mobile — stay side by side but shrink */
 @media (max-width: 768px) {
   .friends-both {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 8px;
   }
   .friends-col {
-    max-width: 100%;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+  .friends-grid {
+    gap: 16px;
+  }
+  .friend-photo {
+    width: 90px;
+    height: 90px;
+  }
+  .friend-name {
+    font-size: 12px;
+  }
+  .friends-sub {
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 }
 
@@ -960,6 +988,16 @@
           gap: 12px;
         }
       }
+      @media (max-width: 768px) {
+      #home {
+        padding-top: 0 !important;
+      }
+      .hero-content {
+        padding-top: 70px;
+      }
+    }
+
+    </style>
     </style>
   </head>
   <body>
