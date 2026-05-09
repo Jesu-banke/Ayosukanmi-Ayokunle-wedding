@@ -61,7 +61,12 @@ nav {
   top: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(253, 245, 240, 0.95);
+  background: linear-gradient(
+    to right,
+    rgba(92, 61, 46, 0.92) 0%,
+    rgba(196, 104, 122, 0.92) 50%,
+    rgba(92, 61, 46, 0.92) 100%
+  );
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--pink);
   padding: 0 30px;
@@ -85,7 +90,7 @@ nav {
   font-size: 10.5px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--choc);
+  color: var(--white);
   transition: color 0.3s;
   white-space: nowrap;
 }
