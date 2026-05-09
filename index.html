@@ -1670,6 +1670,26 @@ nav {
           btns[0].classList.remove("active");
         }
       }
+      // ── HAMBURGER MENU ──
+function toggleMenu() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+function closeMenu() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('hamburger');
+  links.classList.remove('open');
+  burger.classList.remove('open');
+}
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navbar');
+  if (!nav.contains(e.target)) {
+    closeMenu();
+  }
+});
     </script>
   </body>
 </html>
