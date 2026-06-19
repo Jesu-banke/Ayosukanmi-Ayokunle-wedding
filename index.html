@@ -89,6 +89,33 @@ nav {
   white-space: nowrap;
 }
 .nav-links a:hover { color: var(--pink-deep); }
+      /* Nav scrolled state */
+nav.scrolled {
+  background: linear-gradient(
+    to right,
+    rgba(74, 44, 30, 0.96) 0%,
+    rgba(196, 104, 122, 0.96) 50%,
+    rgba(74, 44, 30, 0.96) 100%
+  );
+  box-shadow: 0 2px 20px rgba(74, 44, 30, 0.15);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Keep nav links and hamburger white when scrolled */
+nav.scrolled .nav-links a {
+  color: var(--white);
+}
+nav.scrolled .hamburger span {
+  background: var(--white);
+}
+nav.scrolled::before {
+  color: var(--white);
+}
+
+/* Smooth transition on the nav always */
+nav {
+  transition: background 0.4s ease;
+}
 
 /* Hamburger button — hidden on desktop */
 .hamburger {
@@ -1704,6 +1731,15 @@ document.addEventListener('click', function(e) {
   const nav = document.getElementById('navbar');
   if (!nav.contains(e.target)) {
     closeMenu();
+  }
+});
+      // ── NAV SCROLL COLOUR CHANGE ──
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
   }
 });
     </script>
