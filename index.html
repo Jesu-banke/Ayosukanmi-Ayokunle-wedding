@@ -1399,12 +1399,16 @@ nav {
             <!-- Uncomment when Tobi provides the video link:
         <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
         -->
-            <div class="video-placeholder">
-              <div class="play-ring">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-              </div>
-              <span class="video-tag">Our Story · Video coming soon</span>
-            </div>
+           <video
+  controls
+  playsinline
+  preload="metadata"
+  poster="COUPLE1.jpeg"
+  style="width:100%; height:100%; position:absolute;
+         inset:0; object-fit:cover; border-radius:4px;">
+  <source src="VIDEO.mp4" type="video/mp4">
+  Your browser does not support the video.
+</video>
           </div>
         </div>
       </div>
