@@ -636,14 +636,25 @@ nav {
         max-width: 780px;
         margin: 0 auto;
       }
-      .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        border-radius: 4px;
-        overflow: hidden;
-        box-shadow: 0 8px 50px rgba(74, 44, 30, 0.12);
-        border: 1px solid var(--pink);
-      }
+     .video-container {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 50px rgba(74, 44, 30, 0.12);
+  border: 1px solid var(--pink);
+  padding-bottom: 0;
+  height: auto;
+}
+.video-container video {
+  position: relative !important;
+  inset: unset !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  object-fit: contain;
+  background: #000;
+  border-radius: 4px;
+}
       .video-container iframe {
         position: absolute;
         inset: 0;
