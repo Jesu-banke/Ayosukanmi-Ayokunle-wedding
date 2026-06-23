@@ -712,7 +712,7 @@ nav {
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.55);
       }
-   /* ── GALLERY ── */
+  /* ── GALLERY ── */
 #gallery { background: var(--cream); }
 
 .gallery-swiper {
@@ -720,41 +720,64 @@ nav {
   max-width: 780px;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 8px 40px rgba(74, 44, 30, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(74, 44, 30, 0.15);
   touch-action: pan-y;
   user-select: none;
+  background: #000;
 }
 .gallery-track {
   display: flex;
   transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
-.gallery-track img {
+
+/* Each slide */
+.gallery-slide {
   min-width: 100%;
-  width: 100%;
-  height: auto;
-  max-height: 600px;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  pointer-events: none;
-  background: #111;
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .gallery-track img {
-    max-height: 400px;
-  }
+/* Blurred background layer */
+.gallery-slide::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background-image: var(--slide-bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.55) saturate(1.2);
+  z-index: 1;
+  transform: scale(1.15);
 }
-/* Prev / Next arrows */
+
+/* Actual photo on top */
+.gallery-slide img {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+/* Arrow buttons */
 .swiper-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 20px;
   width: 36px;
@@ -768,16 +791,12 @@ nav {
   z-index: 10;
   opacity: 0.6;
 }
-.gallery-swiper:hover .swiper-btn {
-  opacity: 1;
-}
-.swiper-btn:hover {
-  background: rgba(255,255,255,0.35);
-}
+.gallery-swiper:hover .swiper-btn { opacity: 1; }
+.swiper-btn:hover { background: rgba(255, 255, 255, 0.3); }
 .swiper-prev { left: 14px; }
 .swiper-next { right: 14px; }
 
-/* Dot indicators */
+/* Dots */
 .swiper-dots {
   display: flex;
   justify-content: center;
@@ -812,13 +831,8 @@ nav {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .gallery-track img {
+  .gallery-slide {
     height: 380px;
-  }
-  .swiper-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
   }
 }
       /* ── FRIENDS ── */
@@ -1466,17 +1480,34 @@ nav {
 <h2 class="s-title">Our Gallery</h2>
 <div class="s-rule"></div>
 
-<div class="gallery-swiper" id="gallerySwiper">
+<<div class="gallery-swiper" id="gallerySwiper">
   <div class="gallery-track" id="galleryTrack">
-    <!-- ✏️ Replace filenames with your actual photo names -->
-    <img src="SB2_5145.jpg.jpeg" alt="Couple">
-    <img src="SB2_5150.jpg.jpeg" alt="Couple">
-    <img src="SB2_5161.jpg.jpeg" alt="Couple">
-    <img src="SB2_5204.jpg.jpeg" alt="Couple">
-    <img src="SB2_5214.jpg.jpeg" alt="Couple">
-    <img src="SB2_5225.jpg.jpeg" alt="Couple">
-    <img src="COUPLE 7.jpeg" alt="Couple">
-    <img src="COUPLE 8.jpeg" alt="Couple">
+
+    <div class="gallery-slide" style="--slide-bg: url('gallery1.jpeg')">
+      <img src="SB2_5145.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery2.jpeg')">
+      <img src="SB2_5150.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery3.jpeg')">
+      <img src="SB2_5161.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery4.jpeg')">
+      <img src="SB2_5204.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery5.jpeg')">
+      <img src="SB2_5214.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery6.jpeg')">
+      <img src="SB2_5225.jpg.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery7.jpeg')">
+      <img src="COUPLE 7.jpeg" alt="Couple">
+    </div>
+    <div class="gallery-slide" style="--slide-bg: url('gallery8.jpeg')">
+      <img src="COUPLE 8.jpeg" alt="Couple">
+    </div>
+
   </div>
   <button class="swiper-btn swiper-prev" onclick="swiperMove(-1)">&#8249;</button>
   <button class="swiper-btn swiper-next" onclick="swiperMove(1)">&#8250;</button>
@@ -1781,36 +1812,33 @@ window.addEventListener('load', function() {
       tick();
       setInterval(tick, 1000);
 
- // ── GALLERY SWIPER ──
+// ── GALLERY SWIPER ──
 (function() {
   const track    = document.getElementById('galleryTrack');
   const dotsWrap = document.getElementById('swiperDots');
   const counter  = document.getElementById('swiperCounter');
-  const imgs     = track ? Array.from(track.querySelectorAll('img')) : [];
+  const slides   = track ? Array.from(track.querySelectorAll('.gallery-slide')) : [];
   let current    = 0;
   let startX     = 0;
   let isDragging = false;
   let autoTimer  = null;
 
-  // Clone first and last images for infinite loop
-  if (imgs.length > 0) {
-    const firstClone = imgs[0].cloneNode(true);
-    const lastClone  = imgs[imgs.length - 1].cloneNode(true);
-    firstClone.classList.add('clone');
-    lastClone.classList.add('clone');
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, imgs[0]);
-  }
+  if (slides.length === 0) return;
 
-  const allSlides = track.querySelectorAll('img');
-  let pos = 1; // Start at 1 because of the prepended clone
+  // Clone first and last for infinite loop
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone  = slides[slides.length - 1].cloneNode(true);
+  firstClone.classList.add('clone');
+  lastClone.classList.add('clone');
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  let pos = 1;
 
   function slideTo(index, animated) {
-    if (animated === false) {
-      track.style.transition = 'none';
-    } else {
-      track.style.transition = 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)';
-    }
+    track.style.transition = animated === false
+      ? 'none'
+      : 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)';
     track.style.transform = 'translateX(-' + (index * 100) + '%)';
   }
 
@@ -1818,11 +1846,11 @@ window.addEventListener('load', function() {
     dotsWrap.querySelectorAll('.swiper-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === current);
     });
-    counter.textContent = (current + 1) + ' of ' + imgs.length;
+    counter.textContent = (current + 1) + ' of ' + slides.length;
   }
 
   // Build dots
-  imgs.forEach(function(_, i) {
+  slides.forEach(function(_, i) {
     const dot = document.createElement('button');
     dot.className = 'swiper-dot' + (i === 0 ? ' active' : '');
     dot.addEventListener('click', function() {
@@ -1835,13 +1863,13 @@ window.addEventListener('load', function() {
     dotsWrap.appendChild(dot);
   });
 
-  // After transition ends — jump silently for infinite effect
+  // Infinite loop jump
   track.addEventListener('transitionend', function() {
     if (pos === 0) {
-      pos = imgs.length;
+      pos = slides.length;
       slideTo(pos, false);
     }
-    if (pos === imgs.length + 1) {
+    if (pos === slides.length + 1) {
       pos = 1;
       slideTo(pos, false);
     }
@@ -1849,22 +1877,18 @@ window.addEventListener('load', function() {
     updateDots();
   });
 
-  // Initialise
   slideTo(pos, false);
   updateDots();
 
-  // Move function
   function move(dir) {
     pos += dir;
     slideTo(pos, true);
     resetAuto();
   }
-
   window.swiperMove = move;
 
-  // Auto-play every 4 seconds
   function startAuto() {
-    autoTimer = setInterval(function() { move(1); }, 4000);
+    autoTimer = setInterval(function() { move(1); }, 4500);
   }
   function resetAuto() {
     clearInterval(autoTimer);
@@ -1872,24 +1896,20 @@ window.addEventListener('load', function() {
   }
   startAuto();
 
-  // Touch swipe
+  // Touch
   const swiper = document.getElementById('gallerySwiper');
   if (swiper) {
     swiper.addEventListener('touchstart', function(e) {
       startX = e.touches[0].clientX;
       clearInterval(autoTimer);
     }, { passive: true });
-
     swiper.addEventListener('touchend', function(e) {
       const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        move(diff > 0 ? 1 : -1);
-      } else {
-        startAuto();
-      }
+      if (Math.abs(diff) > 40) move(diff > 0 ? 1 : -1);
+      else startAuto();
     }, { passive: true });
 
-    // Mouse drag desktop
+    // Mouse drag
     swiper.addEventListener('mousedown', function(e) {
       startX = e.clientX;
       isDragging = true;
@@ -1899,11 +1919,8 @@ window.addEventListener('load', function() {
       if (!isDragging) return;
       isDragging = false;
       const diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) {
-        move(diff > 0 ? 1 : -1);
-      } else {
-        startAuto();
-      }
+      if (Math.abs(diff) > 40) move(diff > 0 ? 1 : -1);
+      else startAuto();
     });
   }
 
