@@ -775,24 +775,25 @@ nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
-  font-size: 20px;
-  width: 36px;
-  height: 36px;
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s, opacity 0.3s;
+  transition: background 0.3s;
   z-index: 10;
-  opacity: 0.6;
+  opacity: 1;
 }
-.gallery-swiper:hover .swiper-btn { opacity: 1; }
-.swiper-btn:hover { background: rgba(255, 255, 255, 0.3); }
+.swiper-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
 .swiper-prev { left: 14px; }
 .swiper-next { right: 14px; }
 
