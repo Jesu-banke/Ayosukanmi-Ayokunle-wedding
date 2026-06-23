@@ -636,24 +636,34 @@ nav {
         max-width: 780px;
         margin: 0 auto;
       }
-     .video-container {
+    .video-container {
   position: relative;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 50px rgba(74, 44, 30, 0.12);
   border: 1px solid var(--pink);
-  padding-bottom: 0;
-  height: auto;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  background: #000;
 }
 .video-container video {
   position: relative !important;
   inset: unset !important;
   width: 100% !important;
   height: auto !important;
+  max-height: 80vh;
   display: block;
   object-fit: contain;
   background: #000;
-  border-radius: 4px;
+  border-radius: 8px;
+}
+
+/* Mobile video */
+@media (max-width: 768px) {
+  .video-container video {
+    max-height: 60vh;
+  }
 }
       .video-container iframe {
         position: absolute;
@@ -1710,6 +1720,15 @@ nav {
     </footer>
 
     <script>
+      // Force page to start at top on load
+window.onbeforeunload = function() {
+  window.scrollTo(0, 0);
+};
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.scrollTo(0, 0);
+  }, 0);
+});
       // ── CAROUSEL ──
       let cur = 0;
       const slides = document.querySelectorAll(".slide");
@@ -1817,6 +1836,21 @@ window.addEventListener('scroll', function() {
     nav.classList.remove('scrolled');
   }
 });
+     // ── PAUSE VIDEO WHEN SCROLLED OUT OF VIEW ──
+const videoEl = document.querySelector('.video-container video');
+if (videoEl) {
+  const videoObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) {
+          videoEl.pause();
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  videoObserver.observe(videoEl);
+} 
     </script>
   </body>
 </html>
