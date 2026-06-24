@@ -768,6 +768,7 @@ nav {
   display: block;
   pointer-events: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 /* Arrow buttons */
@@ -896,7 +897,8 @@ nav {
       }
       .friends-both {
   display: flex;
-  gap: 60px;
+  flex-direction:row;   
+  gap: 12px;
   max-width: 1100px;
   margin: 0 auto;
   align-items: flex-start;
@@ -1713,49 +1715,46 @@ nav {
         </div>
 
         <!-- Nearby Hotels -->
-        <h3 class="hotels-title">Nearby Hotels</h3>
-        <div class="hotels-grid">
-          <div class="hotel-card">
-            <p class="hotel-name">Fountain Hotel</p>
-            <p class="hotel-addr">Iworoko Road, Ado Ekiti<br />Ekiti State</p>
-            <a
-              class="hotel-link"
-              href="https://maps.google.com/?q=Fountain+Hotel+Ado+Ekiti"
-              target="_blank"
-              >→ Get Directions</a
-            >
-          </div>
-          <div class="hotel-card">
-            <p class="hotel-name">D-Grace Hotel & Garden</p>
-            <p class="hotel-addr">Adebayo Area, Ado Ekiti<br />Ekiti State</p>
-            <a
-              class="hotel-link"
-              href="https://maps.google.com/?q=De+Olives+Hotel+Ado+Ekiti"
-              target="_blank"
-              >→ Get Directions</a
-            >
-          </div>
-          <div class="hotel-card">
-            <p class="hotel-name">Olujoda International Hotel</p>
-            <p class="hotel-addr">Ado Ekiti<br />Ekiti State</p>
-            <a
-              class="hotel-link"
-              href="https://maps.google.com/?q=Osun+Hotel+Ado+Ekiti"
-              target="_blank"
-              >→ Get Directions</a
-            >
-          </div>
-          <div class="hotel-card">
-            <p class="hotel-name">Hillview Hotel and Resort</p>
-            <p class="hotel-addr">Ajebamidele, Ado Ekiti<br />Ekiti State</p>
-            <a
-              class="hotel-link"
-              href="https://maps.google.com/?q=Hillcrest+Hotel+Ado+Ekiti"
-              target="_blank"
-              >→ Get Directions</a
-            >
-          </div>
-        </div>
+       <h3 class="hotels-title">Nearby Hotels</h3>
+<div class="hotels-grid">
+
+  <div class="hotel-card">
+    <p class="hotel-name">The Bethel Resort</p>
+    <p class="hotel-addr">
+      14, Ogunniyi Federal Housing Estate<br>
+      Ado Ekiti, Ekiti State<br>
+      📞 +234 811 111 091
+    </p>
+    <a class="hotel-link"
+       href="https://maps.google.com/?q=Tiwaloluwa+Christian+Resort+Ado+Ekiti"
+       target="_blank">→ Get Directions</a>
+  </div>
+
+  <div class="hotel-card">
+    <p class="hotel-name">Dream View Hotel</p>
+    <p class="hotel-addr">
+      Behind Matrix Filling Station<br>
+      Church Road, Adebayo<br>
+      Ado Ekiti, Ekiti State
+    </p>
+    <a class="hotel-link"
+       href="https://maps.google.com/?q=Dream+View+Hotel+Adebayo+Church+Road+Ado+Ekiti"
+       target="_blank">→ Get Directions</a>
+  </div>
+
+  <div class="hotel-card">
+    <p class="hotel-name">The AB Hotel</p>
+    <p class="hotel-addr">
+      No. 16–18 Olora Layout<br>
+      Opposite NIN Housing Road, Adebayo<br>
+      Ado Ekiti · 📞 07036905671
+    </p>
+    <a class="hotel-link"
+       href="https://maps.google.com/?q=AB+Hotel+Olora+Layout+Adebayo+Ado+Ekiti"
+       target="_blank">→ Get Directions</a>
+  </div>
+
+</div>
       </div>
     </section>
 
@@ -2009,6 +2008,25 @@ if (videoEl) {
   );
   videoObserver.observe(videoEl);
 } 
+      // Image lightbox
+document.querySelectorAll('.gallery-slide img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    document.getElementById('imgLbSrc').src = this.src;
+    const lb = document.getElementById('imgLightbox');
+    lb.style.display = 'flex';
+  });
+});
+function closeImgLb() {
+  document.getElementById('imgLightbox').style.display = 'none';
+}
+document.getElementById('imgLightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeImgLb();
+});
     </script>
+      <!-- FULLSCREEN LIGHTBOX -->
+<div id="imgLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; align-items:center; justify-content:center; flex-direction:column;">
+  <span onclick="closeImgLb()" style="position:absolute; top:20px; right:28px; color:#fff; font-size:36px; cursor:pointer; z-index:10;">&times;</span>
+  <img id="imgLbSrc" src="" style="max-width:95vw; max-height:90vh; object-fit:contain; border-radius:4px;">
+</div>
   </body>
 </html>
