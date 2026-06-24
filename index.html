@@ -2007,13 +2007,12 @@ if (videoEl) {
   );
   videoObserver.observe(videoEl);
 } 
-      // Image lightbox
-document.querySelectorAll('.gallery-slide img').forEach(function(img) {
-  img.addEventListener('click', function() {
-    document.getElementById('imgLbSrc').src = this.src;
-    const lb = document.getElementById('imgLightbox');
-    lb.style.display = 'flex';
-  });
+ // Image lightbox
+document.getElementById('gallerySwiper').addEventListener('click', function(e) {
+  const img = e.target.closest('img');
+  if (!img) return;
+  document.getElementById('imgLbSrc').src = img.src;
+  document.getElementById('imgLightbox').style.display = 'flex';
 });
 function closeImgLb() {
   document.getElementById('imgLightbox').style.display = 'none';
@@ -2021,11 +2020,12 @@ function closeImgLb() {
 document.getElementById('imgLightbox').addEventListener('click', function(e) {
   if (e.target === this) closeImgLb();
 });
-    </script>
-      <!-- FULLSCREEN LIGHTBOX -->
+       <!-- FULLSCREEN LIGHTBOX -->
 <div id="imgLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; align-items:center; justify-content:center; flex-direction:column;">
   <span onclick="closeImgLb()" style="position:absolute; top:20px; right:28px; color:#fff; font-size:36px; cursor:pointer; z-index:10;">&times;</span>
   <img id="imgLbSrc" src="" style="max-width:95vw; max-height:90vh; object-fit:contain; border-radius:4px;">
 </div>
+    </script>
+     
   </body>
 </html>
