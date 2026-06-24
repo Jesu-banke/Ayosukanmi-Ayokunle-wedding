@@ -1213,8 +1213,6 @@ nav {
     grid-row: unset;
   }
     }
-
-    </style>
     </style>
   </head>
   <body>
@@ -1484,39 +1482,31 @@ nav {
 
 <div class="gallery-swiper" id="gallerySwiper">
   <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide"
+     style="--slide-bg:url('SB2_5145.jpg.jpeg')">
+  <img src="SB2_5145.jpg.jpeg" alt="Couple">
+</div>
+     <div class="gallery-slide"
+     style="--slide-bg:url('SB2_5150.jpg.jpeg')">
+  <img src="SB2_5150.jpg.jpeg" alt="Couple">
+</div>
 
-  <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5145.jpg.jpeg')"></div>
-        <img src="SB2_5145.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5150.jpg.jpeg')"></div>
-        <img src="SB2_5150.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5161.jpg.jpeg')"></div>
-        <img src="SB2_5161.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5204.jpg.jpeg')"></div>
-        <img src="SB2_5204.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5214.jpg.jpeg')"></div>
-        <img src="SB2_5214.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('SB2_5225.jpg.jpeg')"></div>
-        <img src="SB2_5225.jpg.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('COUPLE 7.jpeg')"></div>
-        <img src="COUPLE 7.jpeg" alt="Couple">
-      </div>
-      <div class="gallery-slide">
-        <div class="blur-bg" style="background-image:url('COUPLE 8.jpeg')"></div>
-        <img src="COUPLE 8.jpeg" alt="Couple">
-      </div>
+<div class="gallery-slide"
+     style="--slide-bg:url('SB2_5161.jpg.jpeg')">
+  <img src="SB2_5161.jpg.jpeg" alt="Couple">
+</div>
+
+<div class="gallery-slide"
+     style="--slide-bg:url('SB2_5204.jpg.jpeg')">
+  <img src="SB2_5204.jpg.jpeg" alt="Couple">
+</div>
+    <div class="gallery-slide"
+     style="--slide-bg:url('COUPLE 7.jpeg')">
+  <img src="COUPLE 7.jpeg" alt="Couple">
+</div>
+   <div class="gallery-slide"
+     style="--slide-bg:url('COUPLE 8.jpeg')">
+  <img src="COUPLE 8.jpeg" alt="Couple">
 </div>
   </div>
   <button class="swiper-btn swiper-prev" onclick="swiperMove(-1)">&#8249;</button>
@@ -2020,12 +2010,11 @@ function closeImgLb() {
 document.getElementById('imgLightbox').addEventListener('click', function(e) {
   if (e.target === this) closeImgLb();
 });
-       <!-- FULLSCREEN LIGHTBOX -->
+    </script>
+     <!-- FULLSCREEN LIGHTBOX -->
 <div id="imgLightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; align-items:center; justify-content:center; flex-direction:column;">
   <span onclick="closeImgLb()" style="position:absolute; top:20px; right:28px; color:#fff; font-size:36px; cursor:pointer; z-index:10;">&times;</span>
   <img id="imgLbSrc" src="" style="max-width:95vw; max-height:90vh; object-fit:contain; border-radius:4px;">
 </div>
-    </script>
-     
   </body>
 </html>
