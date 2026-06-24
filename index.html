@@ -2011,6 +2011,7 @@ document.getElementById('gallerySwiper').addEventListener('click', function(e) {
 function closeImgLb() {
   document.getElementById('imgLightbox').style.display = 'none';
 }
+console.log('Lightbox element:', document.getElementById('imgLightbox'));
  document.getElementById('imgLightbox').addEventListener('click', function(e) {
   if (e.target === this) closeImgLb();
 });
