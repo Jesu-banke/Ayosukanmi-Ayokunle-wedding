@@ -651,6 +651,16 @@ nav {
   .video-container {
     max-width: 480px;
   }
+     .video-container::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background-image: url('COUPLE1.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) brightness(0.55);
+  transform: scale(1.2);
+  z-index: 1;
 }
 .video-container video {
   position: relative !important;
@@ -662,6 +672,7 @@ nav {
   object-fit: contain;
   background: #000;
   border-radius: 8px;
+   z-index: 2;
 }
 
 /* Mobile video */
