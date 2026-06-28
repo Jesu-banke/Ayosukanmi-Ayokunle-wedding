@@ -1467,7 +1467,7 @@ nav {
   controls
   playsinline
   preload="metadata"
-  poster="COUPLE1.jpeg"
+  poster="COUPLE1.jpeg">
   <source src="VIDEO.mp4" type="video/mp4">
   Your browser does not support the video.
 </video>
@@ -1486,40 +1486,40 @@ nav {
   <div class="gallery-track" id="galleryTrack">
         <div class="gallery-slide"
      style="--slide-bg:url('SB2_5145.jpg.jpeg')">
-  <img src="SB2_5145.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5145.jpg.jpeg" alt="Couple" decoding="async">
 </div>
      <div class="gallery-slide"
      style="--slide-bg:url('SB2_5150.jpg.jpeg')">
-  <img src="SB2_5150.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5150.jpg.jpeg" alt="Couple" decoding="async">
 </div>
 
 <div class="gallery-slide"
      style="--slide-bg:url('SB2_5161.jpg.jpeg')">
-  <img src="SB2_5161.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5161.jpg.jpeg" alt="Couple" decoding="async">
 </div>
 
 <div class="gallery-slide"
      style="--slide-bg:url('SB2_5204.jpg.jpeg')">
-  <img src="SB2_5204.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5204.jpg.jpeg" alt="Couple" decoding="async">
 </div>
 
 <div class="gallery-slide"
      style="--slide-bg:url('SB2_5214.jpg.jpeg')">
-  <img src="SB2_5214.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5214.jpg.jpeg" alt="Couple" decoding="async">
 </div>
 
     <div class="gallery-slide"
      style="--slide-bg:url('SB2_5225.jpg.jpeg')">
-  <img src="SB2_5225.jpg.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="SB2_5225.jpg.jpeg" alt="Couple" decoding="async">
 </div>
     
     <div class="gallery-slide"
      style="--slide-bg:url('COUPLE7.jpeg')">
-  <img src="COUPLE 7.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="COUPLE 7.jpeg" alt="Couple" decoding="async">
 </div>
    <div class="gallery-slide"
      style="--slide-bg:url('COUPLE 8.jpeg')">
-  <img src="COUPLE 8.jpeg" alt="Couple" loading="lazy" decoding="async">
+  <img src="COUPLE 8.jpeg" alt="Couple" decoding="async">
 </div>
   </div>
   <button class="swiper-btn swiper-prev" onclick="swiperMove(-1)">&#8249;</button>
@@ -1774,15 +1774,6 @@ nav {
   <img id="imgLbSrc" src="" style="max-width:95vw; max-height:90vh; object-fit:contain; border-radius:4px;">
 </div>
     <script>
-      // Force page to start at top on load
-window.onbeforeunload = function() {
-  window.scrollTo(0, 0);
-};
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    window.scrollTo(0, 0);
-  }, 0);
-});
       // ── CAROUSEL ──
       let cur = 0;
       const slides = document.querySelectorAll(".slide");
